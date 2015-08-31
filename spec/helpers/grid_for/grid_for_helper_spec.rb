@@ -15,8 +15,14 @@ describe GridFor::GridForHelper do
 
     describe "#col(size, options = {}, &block)" do
       it "renders a div of the given size" do
-        expect(described_class.new(object, ActionView::Base.new).col(4) { "Hello"}).to eq(
+        expect(described_class.new(object, ActionView::Base.new).col(4) { "Hello" }).to eq(
           "<div class=\"span4\">Hello</div>"
+        )
+      end
+
+      it "renders a div spanning 12 by default" do
+        expect(described_class.new(object, ActionView::Base.new).col { "Hello" }).to match(
+          %r"class=\"span12\""
         )
       end
     end
