@@ -20,8 +20,10 @@ module GridFor
         end
       end
 
-      def col(size = 12, options = {}, &block)
-        content_tag(:div, class: "span#{size}") do
+      def col(options = {}, &block)
+        options[:size] ||= 12
+
+        content_tag(:div, class: "span#{options[:size]}") do
           template.capture(&block)
         end
       end
