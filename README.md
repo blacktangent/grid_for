@@ -32,6 +32,12 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Options
+`col(options = {}, &block)`
+
+* __:size__ - Width of column.
+* __:class__ - Add additional classes to row and column divs.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

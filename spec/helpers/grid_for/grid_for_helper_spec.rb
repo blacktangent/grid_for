@@ -17,16 +17,26 @@ describe GridFor::GridForHelper do
     end
 
     describe "#col(options = {}, &block)" do
-      it "renders a span of the given size with the size option" do
-        expect(builder.col(size: 4) { "Hello" }).to eq(
-          "<div class=\"span4\">Hello</div>"
-        )
-      end
-
       it "renders a div spanning 12 by default" do
         expect(builder.col { "Hello" }).to match(
           %r"class=\"span12\""
         )
+      end
+
+      describe "options[:size]" do
+        it "renders a div spanning the given size" do
+          expect(builder.col(size: 4) { "Hello" }).to eq(
+            "<div class=\"span4\">Hello</div>"
+          )
+        end
+      end
+
+      describe "options[:class]" do
+        it "renders a div with the given class(es)" do
+          expect(builder.col(size: 4, class: "form-actions") { "Hello" }).to match(
+            %r"class=\"span4 form-actions\""
+          )
+        end
       end
     end
   end
