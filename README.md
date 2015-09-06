@@ -8,9 +8,8 @@
 [![Code Climate](https://codeclimate.com/github/blacktangent/grid_for/badges/gpa.svg)][codeclimate]
 [![Test Coverage](http://img.shields.io/coveralls/blacktangent/grid_for/master.svg)][coveralls]
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/grid_for`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+ActionView Helper to easily create Bootstrap grids. Written to easily
+transition to future Bootstrap versions without using search-and-replace.
 
 ## Installation
 
@@ -30,7 +29,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```erb
+<%= grid_for @company do |b| %>
+  <%= b.row do %>
+    <% b.col(size: 3) do %>
+      A list of attributes.
+    <% end %>
+    <%= b.col(size: 9) do %>
+      A big table.
+    <% end %>
+  <% end %>
+<% end %>
+```
 
 ## Options
 `col(options = {}, &block)`
